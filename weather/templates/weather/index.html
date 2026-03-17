@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Weather Assistant</title>
+    <link rel="stylesheet" href="{% static 'weather/styles.css' %}" />
+</head>
+<body>
+    <main class="container">
+        <section class="weather-card">
+            <h1>AI Weather Assistant</h1>
+            <p class="subtitle">Get real-time weather and a human-like AI summary.</p>
+
+            <form id="weather-form" class="search-row">
+                <input id="city-input" type="text" placeholder="Enter city name..." aria-label="City name" required />
+                <button type="submit">Check Weather</button>
+            </form>
+
+            <div id="spinner" class="spinner hidden" aria-live="polite"></div>
+            <p id="error-message" class="error hidden"></p>
+
+            <section id="weather-result" class="hidden">
+                <div class="current-weather">
+                    <h2 id="location"></h2>
+                    <div class="metrics">
+                        <div><span>🌡️ Temp</span><strong id="temp"></strong></div>
+                        <div><span>💧 Humidity</span><strong id="humidity"></strong></div>
+                        <div><span>🌬️ Wind</span><strong id="wind"></strong></div>
+                        <div><span>⛅ Condition</span><strong id="condition"></strong></div>
+                    </div>
+                </div>
+
+                <div class="ai-summary">
+                    <h3>AI Summary</h3>
+                    <p id="ai-summary-text"></p>
+                </div>
+
+                <div>
+                    <h3>5-Day Forecast</h3>
+                    <div id="forecast-grid" class="forecast-grid"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="{% static 'weather/app.js' %}"></script>
+</body>
+</html>
